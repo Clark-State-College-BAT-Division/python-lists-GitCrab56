@@ -1,5 +1,7 @@
+import   random
+
 #Create two seperate lists for player one and player two. 
-#Each one should contain 10 random numbers between 1 and 50.
+#Each one  should contain 10 random numbers between 1 and 50.
 #Do NOT sort the lists.
 #Compare the lists in order. Whichever list has the higher number wins.
 #Keep track of how many times each list wins.
@@ -18,3 +20,49 @@
 #Player two's highest number is 8 at index 1
 #Player one's lowest number is 1 at index 4
 #Player two's lowest number is 1 at index 5
+
+PlayerOne = [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0]
+PlayerTwo = [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0]
+PlayerOneWins = 0
+PlayerTwoWins = 0
+UserInput = input("Please enter 0 to start: ")
+RealInput = int(UserInput)
+
+while RealInput >= 0:
+    for x in range (10):
+        PlayerOne[x] = random.randint(1, 50)
+        PlayerTwo[x] = random.randint(1, 50)
+        if PlayerOne[x] > PlayerTwo[x]: 
+            PlayerOneWins += 1
+        elif PlayerTwo[x] > PlayerOne[x]:
+            PlayerTwoWins += 1
+
+   
+    print(f" Player One = {PlayerOne}")
+    print(f" Player Two = {PlayerTwo}")
+
+    print(f" Player One won {PlayerOneWins} times")
+    print(f" Player Two won {PlayerTwoWins} times")
+    
+    MinimumP1 = min(PlayerOne)
+    MindexP1 = PlayerOne.index(MinimumP1)
+    print(f"Player One's lowest number was {MinimumP1} at index {MindexP1}")
+    MaximumP1 = max(PlayerOne)
+    MaxdexP1 = PlayerOne.index(MaximumP1)
+    print(f"Player One's highest number was {MaximumP1} at index {MaxdexP1}")
+
+  
+  
+   
+    MinimumP2 = min(PlayerTwo)
+    MindexP2 = PlayerTwo.index(MinimumP2)
+    print(f"Player Two's lowest number was {MinimumP2} at index {MindexP2}")
+    MaximumP2 = max(PlayerTwo)
+    MaxdexP2 = PlayerTwo.index(MaximumP2)
+    print(f"Player Two's highest number was {MaximumP2} at index {MaxdexP2}")
+    
+    PlayerOneWins = 0
+    PlayerTwoWins = 0
+    
+    UserInput = input("Please Type 0 to continue and -1 to stop: ")
+    RealInput =int(UserInput)
